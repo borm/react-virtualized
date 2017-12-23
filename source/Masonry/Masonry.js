@@ -15,7 +15,7 @@ const emptyObject = {};
  * Specifies the number of miliseconds during which to disable pointer events while a scroll is in progress.
  * This improves performance and makes scrolling smoother.
  */
-export const DEFAULT_SCROLLING_RESET_TIME_INTERVAL = 150;
+export const DEFAULT_SCROLLING_RESET_TIME_INTERVAL = 0;
 
 /**
  * This component efficiently displays arbitrarily positioned cells using windowing techniques.
@@ -261,7 +261,7 @@ export default class Masonry extends PureComponent {
           position: 'relative',
           width,
           WebkitOverflowScrolling: 'touch',
-          willChange: 'transform',
+          // willChange: 'transform',
           ...style,
         }}
         tabIndex={tabIndex}>
@@ -382,6 +382,7 @@ export default class Masonry extends PureComponent {
   }
 
   _onScroll(event) {
+    console.log(event);
     const {height} = this.props;
 
     const eventScrollTop = event.target.scrollTop;
